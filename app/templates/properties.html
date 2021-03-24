@@ -1,0 +1,29 @@
+{%extends 'base.html'%} 
+{% block main%}
+
+<h1> Properties </h1>
+
+{% include 'flash_messages.html' %}
+
+<div class = "grid-container">
+    {% for property in prop %}
+        <div class="grid1">
+
+            <img class = "picture" src="{{ url_for('get_image', filename = property.picture) }}" />
+
+            <div class ="property">        
+            	<h3>{{ property.title }}</h3>
+
+                <div class = "location1">
+                    <img class = "location" src = "/static/images/location.png">
+                    <p class = "location1">{{ property.location }}</p>
+                </div>
+
+                <p class = "price">${{ property.price }}</p>
+            </div>
+
+            <a href="{{ url_for('propertyById', propertyid = property.id) }}"><button type="button">View Property </button>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

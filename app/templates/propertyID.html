@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block main %}
+{% include 'flash_messages.html' %}
+
+<div class = "grid-container">
+	<div class = "grid1">
+		<img class = "pic" src = "{{ url_for('get_image', filename = propID.picture) }}" />
+		<h2> {{ propID.title }} </h2>
+		<div class = "container">
+			<p class = "price"> {{ propID.price }} </p>
+			<p class = "propType"> {{ propID.propType }} </p>
+		</div>
+		<p> {{ propID.description }} </p>
+		<div>
+			<p> <img class = "icon" src = "/static/images/bed.png"> {{propID.bed}} Bedrooms</p>
+			<p> <img class = "icon" src = "/static/images/bath.png"> {{propID.bath}} Bathrooms</p>
+		</div>
+		<div>
+			<p> <img class = "icon" src = "/static/images/location.png"> {{propID.location}} </p>
+		</div>
+		<div>
+			<button type="submit"> Email Realtor </button>
+		</div>
+	</div>
+</div>
+{% endblock %}
